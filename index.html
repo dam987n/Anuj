@@ -1,11 +1,257 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My choco pie</title>
-</head>
-<body>
-  <h2>Special sonng</h2>
-  <audio controls>
-    <source src="song_mp3.mp3" type=audio/mpeg">
-  </audio>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 💕</title>
 
+<style>
+body{
+margin:0;
+font-family:cursive;
+text-align:center;
+background:linear-gradient(135deg,#ffd6e8,#fff);
+overflow:hidden;
+}
+
+.page{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+animation:fade 1s;
+}
+
+.active{display:flex;}
+
+@keyframes fade{
+from{opacity:0;transform:scale(.8);}
+to{opacity:1;}
+}
+
+button{
+padding:12px 30px;
+border:none;
+border-radius:30px;
+font-size:18px;
+margin:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.yes{background:#ff4d88;color:white;}
+.no{background:#7db8ff;color:white;}
+
+.envelope{
+width:230px;
+height:150px;
+background:#ff6b9c;
+border-radius:10px;
+cursor:pointer;
+position:relative;
+}
+
+.letter{
+position:absolute;
+width:90%;
+height:140px;
+background:white;
+top:5px;
+left:5%;
+padding:10px;
+border-radius:10px;
+transform:translateY(100%);
+transition:1s;
+font-size:14px;
+}
+
+.envelope.open .letter{
+transform:translateY(-40px);
+}
+
+.jump{
+animation:jump 1s infinite;
+}
+
+@keyframes jump{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+}
+
+.heart{
+position:absolute;
+color:#ff4d88;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
+}
+
+/* Balloon */
+.balloon{
+font-size:80px;
+animation:floatBalloon 4s infinite alternate;
+cursor:pointer;
+}
+
+@keyframes floatBalloon{
+from{transform:translateY(0);}
+to{transform:translateY(-60px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+<h1>Will you be My Valentine? 💖</h1>
+<button class="yes" id="yes1" onclick="next(2)">YES ❤️</button>
+<button class="no" onclick="grow('yes1')">NO 💙</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+<h2>Will you be mine 🥹</h2>
+<p>Because life feels softer,brighter and more beautiful when it's with you</p>
+<button class="yes" id="yes3" onclick="next(3)">YES ❤️</button>
+<button class="no" onclick="grow('yes2')">NO 💙</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="p3">
+<h2>Are you sure 😚?</h2>
+<p>Life is an incredible journey, and I want to spend every single second of it with you</p>
+<button class="yes" id="yes2" onclick="next(4)">YES ❤️</button>
+<button class="no" onclick="grow('yes3')">NO 💙</button>
+</div>
+
+
+<!-- PAGE 4 -->
+<div class="page" id="p4">
+<h2>Think again 😭</h2>
+<p>Because my heart has already chosen you,and it doesn't know how to choose anyone else </p>
+<button class="yes" id="yes4" onclick="next(5)">YES ❤️</button>
+<button class="no" onclick="grow('yes4')">NO 💙</button>
+</div>
+
+<!--PAGE 5  -->
+<div class="page" id="p5">
+<h2>Are you sure?😚 </h2
+<p>Becuase saying yes means signing up for a lifetime of my love,cares,endless kisse😘s</p>
+<button class="yes" id="yes5" onclick="next(6)">YES ❤️</button>
+<button class="no" onclick="grow('yes5')">NO 💙</button>
+</div>
+
+<!-- PAGE 6 LETTER -->
+<div class="page" id="p5">
+<h2>Letter For You 💌</h2>
+
+<div class="envelope" id="env" onclick="openLetter()">
+<div class="letter">
+My kuchupuchu 😚<br><br>
+
+Thank you for being my person.  
+I want to hold your hand through every season of life.  
+You are my chocopie. You are my everything,and I love you so so much.  
+Be same as you are and no sorry for irritating you. No one can replace you from my heart. you always my no.1 golgappa  
+
+Forever yours ❤️
+</div>
+</div>
+
+<br>
+<button onclick="next(7)">Next</button>
+</div>
+
+<!-- PAGE 7 QUIZ -->
+<div class="page" id="p6">
+<h2>Quiz for you 😌</h2>
+<p>Who do you loves the most?</p>
+<button onclick="alert('Correct 😍')">You</button>
+<button onclick="alert('Try again 😏')">Meri sautan </button>
+<button onclick="alert('Try again 😏')">Others</button>
+
+
+<br><br>
+<button onclick="next(8)">Next</button>
+</div>
+
+<!-- PAGE 8 GIFT -->
+<div class="page" id="p7">
+<h2>Special message For You 🎁</h2>
+
+<img width="200"
+src="https://media.tenor.com/Ys4jzX8dXnQAAAAi/teddy-bear-love.gif">
+
+<br>
+<button onclick="next(9)">Next</button>
+</div>
+
+<!-- PAGE 9 LOVE TEXT -->
+<div class="page" id="p8">
+<h1 class="jump">Love You My Choco Pie ❤️</h1>
+<button onclick="next(10)">Next</button>
+</div>
+
+<!-- PAGE 10 SONG PAGE -->
+<div class="page" id="p9">
+<h2>Special song</h2>
+<p>Play button ❤️ </p>
+<audio controls>
+  <source src="song_mp3.mp3"
+type="audio/mpeg">
+</audio>
+<br><br>
+<button onclick="next(1)"Restart</button>
+</div>
+
+<script>
+
+function next(num){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById("p"+num).classList.add("active");
+}
+
+function grow(id){
+let btn=document.getElementById(id);
+let size=parseInt(window.getComputedStyle(btn).fontSize);
+btn.style.fontSize=(size+4)+"px";
+}
+
+function openLetter(){
+document.getElementById("env").classList.add("open");
+}
+
+function play song(){
+for(let i=0;i<40;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+}
+}
+
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.position="fixed";
+heart.style.top="-10px";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontsize=Math.random()*20+10+"px";
+
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},800);
+
+</script>
+
+</body>
+</html>
